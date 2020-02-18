@@ -50,7 +50,7 @@ d3.csv("data.csv", d3.autoType).then(data => {
       .attr("height", height)
 
   // .attr("color", color = ['#0000b4', 'black', '#0094ff', '#0d4bcf', '#0066AE']);
-  const colorScale = d3.scaleLinear().domain([0, d3.max(data, d => d.count) + 1]).range(["aleturquoise", "steelblue"])
+  const colorScale = d3.scaleLinear().domain([0, d3.max(data, d => d.Goals) + 1]).range(["white", "steelblue"])
 
   // append rects
   const rect = svg
