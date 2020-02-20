@@ -5,7 +5,6 @@ d3.csv("data.csv", d3.autoType).then(data => {
 
   // data.sort((first, second) => first.count - second.count)
   data.sort((first, second) => d3.descending(first.Goals, second.Goals))
-
   /** CONSTANTS */
   // constants help us reference the same values throughout our code
   const width = window.innerWidth,
@@ -49,8 +48,8 @@ d3.csv("data.csv", d3.autoType).then(data => {
       .attr("width", width)
       .attr("height", height)
 
-  // .attr("color", color = ['#0000b4', 'black', '#0094ff', '#0d4bcf', '#0066AE']);
-  const colorScale = d3.scaleLinear().domain([0, d3.max(data, d => d.count) + 1]).range(["aleturquoise", "steelblue"])
+  //.attr("color", color = ['#0000b4', 'black', '#0094ff', '#0d4bcf', '#0066AE']);
+  const colorScale = d3.scaleLinear().domain([0, d3.max(data, d => d.Goals) + 1]).range(["steelblue", "purple"])
 
   // append rects
   const rect = svg
