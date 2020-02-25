@@ -28,7 +28,7 @@ let state = {
 /**
  * LOAD DATA
  * */
-d3.json("ValentinesNYC2020.csv", d3.autoType).then(raw_data => {
+d3.csv("ValentinesNYC2020.csv", d3.autoType).then(raw_data => {
   console.log("raw_data", raw_data);
   state.data = raw_data;
   init();
