@@ -160,12 +160,12 @@ function draw() {
   // we define our line function generator telling it how to access the x,y values for each point
   const lineFunc = d3
     .line()
-    .x(d => xScale(d.Year))
+    .x(d => xScale(d.year))
     .y(d => yScale(d.Total));
 
   const dot = svg
     .selectAll(".dot")
-    .data(filteredData, d => d.Year) // use `d.year` as the `key` to match between HTML and data elements
+    .data(filteredData, d => d.year) // use `d.year` as the `key` to match between HTML and data elements
     .join(
       enter =>
         // enter selections -- all data elements that don't have a `.dot` element attached to them yet
@@ -174,7 +174,7 @@ function draw() {
           .attr("class", "dot") // Note: this is important so we can identify it in future updates
           .attr("r", radius)
           .attr("cy", height - margin.bottom) // initial value - to be transitioned
-          .attr("cx", d => xScale(d.Year)),
+          .attr("cx", d => xScale(d.year)),
       update => update,
       exit =>
         exit.call(exit =>
