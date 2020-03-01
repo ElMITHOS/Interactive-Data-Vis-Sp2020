@@ -9,11 +9,11 @@ body {
   }
   
   .dot:hover {
-    fill: orange;
+    fill: purple;
   }
   
   .axis-label {
-    font-size: 14px;
+    font-size: 17px;
     fill: black;
     text-anchor: middle;
   }

@@ -1,4 +1,6 @@
-/**This graph Would have the "Hour" on the yAxis and the Number of "Crashes" on the xAxis,
+/**This scatterplot shows the players that have scored the most in the History of the World Cup as in my bar chart,
+ * but this time, the graph included the country to which each player bolongs to and the average goals per match played. 
+ * The Accidents Data graph Would have the "Hour" on the yAxis and the Number of "Crashes" on the xAxis,
  * (the sum of the Count during an hour).
  *  * The dropdown should show the list of the different causes of crashes.
  * The viewer would then be able to see at what time certain causes of crashes occured.
@@ -8,7 +10,7 @@
 const width = window.innerWidth * 0.7,
   height = window.innerHeight * 0.7,
   margin = { top: 20, bottom: 50, left: 60, right: 40 },
-  radius = 5;
+  radius = 17;
 
 /** these variables allow us to access anything we manipulate in
  * All these variables are empty before we assign something to them.*/
@@ -98,14 +100,14 @@ function init() {
   svg
     .append("g")
     .attr("class", "axis y-axis")
-    .attr("transform", `translate(${margin.left},0)`)
+    .attr("transform", `translate(${margin.left},0)`,)
     .call(yAxis)
     .append("text")
     .attr("class", "axis-label")
     .attr("y", "50%")
     .attr("dx", "-3em")
     .attr("writing-mode", "vertical-rl")
-    .text("Goals");
+    .text("Goals")
 
   draw(); // calls the draw function
 }
@@ -131,8 +133,8 @@ function draw() {
         enter
           .append("circle")
           .attr("class", "dot") // Note: this is important so we can identify it in future updates
-          .attr("stroke", "lightgrey")
-          .attr("opacity", 0.5)
+          .attr("stroke", "lavenderblush")
+          .attr("opacity", 0.7)
           .attr("fill", d => {
             if (d.Team === "Argentina") return "Steelblue";
             else if (d.Team === "Austria") return "HotPink";
@@ -149,7 +151,7 @@ function draw() {
             else if (d.Team === "Italy") return "Green";
             else if (d.Team === "Netherlands") return "PaleVioletRed";
             else if (d.Team === "Peru") return "Red";
-            else if (d.Team === "Poland") return "LightYellow";
+            else if (d.Team === "Poland") return "GreenYellow";
             else if (d.Team === "Portugal") return "Crimson";
             else if (d.Team === "Russia") return "LightBlue";
             else if (d.Team === "Spain") return "Orange";
