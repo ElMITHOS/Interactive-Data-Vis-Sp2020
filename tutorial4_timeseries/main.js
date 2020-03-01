@@ -1,7 +1,7 @@
 /**
  * CONSTANTS AND GLOBALS
  * Information downlaoded from the Mexican Goverment Bureau of Stadistics (Instituto Nacional de Estadística y Geografía (INEGI)),
- * It includes mortality by homicide numbers of men and women in the last decade.
+ * It shows mortality by homicide of women and men in the last decade.
  * This graph will allow to select a State from a dropdown. I would like it to show two different colored graphs at a time,
  * one for men, and another one for women. * */
 
@@ -46,7 +46,7 @@ let state = {
 d3.csv("MexicoMortality10-18Formatted.csv", d => ({
   year: new Date(d.Year, 0, 1),
   Estado: d.Estado,
-  Mortality: d.Total,
+  Total: d.Total
 })).then(raw_data => {
   console.log("raw_data", raw_data);
   state.data = raw_data;
@@ -59,9 +59,15 @@ d3.csv("MexicoMortality10-18Formatted.csv", d => ({
  * */
 function init() {
   // SCALES
+
+  // xScale = d3
+  // .scaleLinear()
+  // .domain(d3.extent(state.data, d => d.year))
+  // .range([margin.left, width - margin.right]);
+
   xScale = d3
     .scaleTime()
-    .domain(d3.extent(state.data, d => d.Year))
+    .domain(d3.extent(state.data, d => d.year))
     .range([margin.left, width - margin.right]);
 
   yScale = d3
