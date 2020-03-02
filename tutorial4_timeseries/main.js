@@ -31,7 +31,7 @@ const formatBillions = (num) => d3.format(".2s")(num)//.replace(/G/, 'B')
  * */
 let state = {
   data: [],
-  selectedEstado: null,
+  selectedEstado: "México",
 };
 
 /**
@@ -107,7 +107,8 @@ function init() {
     .select("#d3-container")
     .append("svg")
     .attr("width", width)
-    .attr("height", height);
+    .attr("height", height)
+    .attr("fill", "red");
 
   // add the xAxis
   svg
@@ -132,7 +133,8 @@ function init() {
     .attr("y", "50%")
     .attr("dx", "-3em")
     .attr("writing-mode", "vertical-rl")
-    .text("Total");
+    .text("Total")
+    .attr("rotate", 9000);
 
   draw(); // calls the draw function
 }

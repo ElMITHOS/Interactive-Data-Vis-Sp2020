@@ -11,17 +11,17 @@ body {
   }
   
   .dot:hover {
-    fill: orange;
+    fill: purple;
   }
   
   .axis-label {
     font-size: 14px;
-    fill: black;
+    fill: red;
     text-anchor: middle;
   }
   
   .trend {
     fill: none;
-    stroke: black;
+    stroke: red;
   }
   
