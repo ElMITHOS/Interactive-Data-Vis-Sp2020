@@ -46,7 +46,7 @@ let state = {
 d3.csv("MexicoMortality10-18Formatted.csv", d => ({
   year: new Date(d.Year, 0, 1),
   Estado: d.Estado,
-  Total: d.Total
+  Total: +d.Total
 })).then(raw_data => {
   console.log("raw_data", raw_data);
   state.data = raw_data;

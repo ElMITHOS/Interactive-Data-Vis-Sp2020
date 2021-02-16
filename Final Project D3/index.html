@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Murder In The United States</title>
+  
+  <!-- I used to use the downloaded file, but I found this to be more straight forward D3-->
+  <script src="https://d3js.org/d3.v6.min.js"></script>
+  
+  <!-- Plugin and styles for D3 tooltips-->
+  <!-- https://www.npmjs.com/package/d3-v6-tip-->
+  <script src="https://unpkg.com/d3-v6-tip@1.0.6/build/d3-v6-tip.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bumbeishvili/d3-tip-for-v6@4/d3-tip.min.css">
+  
+  <!-- Include Inconsolata font family-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <!-- Include local styles-->
+  <link rel="stylesheet" href="css/index.css">
+  
+  <!-- Include Scrollama library for interactive scroll tracking-->
+  <!-- https://www.npmjs.com/package/scrollama-->
+  <script src="https://unpkg.com/intersection-observer"></script>
+  <script src="https://unpkg.com/scrollama"></script>
+  
+  <!-- Include local JS-->
+  <script src="data/us-murder-data.js"></script>
+  <script src="data/us-population-data.js"></script>
+  <script src="js/_legend.js"></script>
+  <script src="js/_colorSchemes.js"></script>
+  <script src="js/LineChart.js"></script>
+  <script src="js/DonutChart.js"></script>
+  <script src="js/ChoroplethMap.js"></script>
+  <script src="js/BarChart.js"></script>
+</head>
+<!-- <header> This is just a place holder for when I find the correct image and font.
+  <img src="https://www.ksat.com/resizer/YeZbQQrXgt8H7-54fnR67TJpb-s=/640x360/smart/filters:format(jpeg):strip_exif(true):strip_icc(true):no_upscale(true):quality(65):fill(FFF)/arc-anglerfish-arc2-prod-gmg.s3.amazonaws.com/public/IJVI2HPU2JAPLJ2MRTBHPJLSCU.jpg" alt="Simply Easy Learning" width="1200"
+         height="200">
+  <h1> ___________________________Murder by the US Police________________________</h1>
+</header>
+<body> -->
+
+<script type="module">
+  // async load local data file
+  d3.csv('./data/fatal-police-shootings-data.csv')
+    .then(data => {
+      
+      // finding the height and width of the container
+      const container = document.getElementById('graphs')
+      const width = container.offsetWidth
+      const height = container.offsetHeight
+      
+      // scrollama initialization
+      // API: https://github.com/russellgoldenberg/scrollama#api
+      const scroller = scrollama();
+      scroller
+        .setup({
+          step: ".step",
+          offset: 0.3
+        })
+        // the action that happens when you step into a step
+        .onStepEnter(({element, index, direction}) => {
+  
+          // cleaning svg with animation
+          d3.select("#graphs").select("svg")
+            .transition()         // call transition method
+            .duration(500)        // transition duration
+            .style("opacity", 0)  // transition object
+          
+          // timeout until the end of the animation
+          setTimeout(() => {
+            // removal of svg element and tooltip if any
+            d3.select("#graphs").select("svg").remove()
+            d3.select(".d3-tip").remove()
+  
+            // creation of svg in #graphs container
+            const svg = d3.select('#graphs')
+              .append("svg")
+              .attr("width", width)
+              .attr("height", height)
+              .style("overflow", "visible")
+              .style("display", "block")
+  
+            // drawing one or another graph depending on the step number
+            switch (element.dataset.step) {
+              case '1':
+                drawLineChart({svg, width, height, data})
+                break;
+              case '2':
+                drawDonutChart({svg, width, height, data})
+                break;
+              case '3':
+                drawBarChart({svg, width, height, data, colorScheme})
+                break;
+              case '4':
+                drawMap({svg, width, height, data, colorScheme})
+                break;
+            }
+          }, 500)
+        })
+    })
+</script>
+<div class="wrap">
+  <article class="article">
+    <div class="title">
+      <h2>The Murderous US Police...</h2>
+    </div>
+    <section class="step" data-step="1">
+      <p>
+        
+        2020 was certainly a year where the rapid succession of unfortunate events had everybody’s tension levels higher
+        than usual. For some, it was too much to handle. It caused some people to lose their mind. Many lost it 
+        so badly that ended up contributing to the mountain of problems we were already facing, by acting on
+        emotion, irrationally, solely based on hearsay, and unfounded claims that were turned into tabloid news
+        by irresponsible reporters (to name one example: the “Toilet Paper Rush”).
+        Now that  tensions have seemingly lowered, and we hopefully are able again to have reasonable conversations
+        based on evidence, for the benefit of everyone, I have put together some data regarding maybe
+        the most controversial topic in the United States in 2020: Murder by Police officers in the US.
+      </p>
+      <p>
+        By consulting several sources, including the Washington Post, the FBI and the Bureau of Justice Statistics,
+        this project seeks to analyze how much is true regarding the claims that led directly and indirectly
+        to one of the most violent times in the history of United States of America as revealed by the
+        Time magazine “Gun violence and gun crime has, in particular, risen drastically, with over 19,000
+        people killed in shootings and firearm-related incidents in 2020. That’s the highest death toll in
+        over 20 years, according to data from the Gun Violence Archive (GVA), an online site that collects
+        gun violence data, and the Britannia Group’s non-partisan site procon.org.”
+        Was all this death justifed? Are the thousand of nameless fatherless children at least to find solace
+        in knowing that the killing of their parents was not senseless?
+      </p>
+    </section>
+    <section class="step" data-step="2">
+      <p>
+        More text here will be accompanying this graph
+      </p>
+      <p>
+        <!-- More text here will be accompanying this graph -->
+      </p>
+    </section>
+    <section class="step" data-step="3">
+      <p>
+        More text here will be accompanying this graph
+      </p>
+      <p>
+        <!-- More text here will be accompanying this graph -->
+      </p>
+    </section>
+    <section class="step" data-step="4">
+      <p>
+        More text here will be accompanying this graph, will find a way to realing the map.
+      </p>
+      <p>
+        <!-- More text here will be accompanying this graph -->
+      </p>
+    </section>
+  </article>
+  <figure class="sticky">
+    <div id="graphs" class="graphs"></div>
+  </figure>
+</div>
+</body>
+</html>
