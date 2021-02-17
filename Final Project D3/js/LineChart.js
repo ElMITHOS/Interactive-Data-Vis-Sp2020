@@ -95,7 +95,7 @@ function drawLineChart({svg, width, height, data, colorScheme}) {
     .attr('class', 'chart-title')    // set class to styling
     .attr('x', -20)                  // set X position
     .attr('y', -40)                  // set Y position
-    .text('Annual victims by race')  // set text
+    .text('Annual Victims by Race')  // set text
   
   // append legend
   let legend = svg.selectAll('.legend')
