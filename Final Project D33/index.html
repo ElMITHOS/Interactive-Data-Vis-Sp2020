@@ -12,10 +12,10 @@
   <script src="https://unpkg.com/d3-v6-tip@1.0.6/build/d3-v6-tip.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bumbeishvili/d3-tip-for-v6@4/d3-tip.min.css">
   
-  <!-- Include Inconsolata font family-->
+  <!-- Include Inconsolata font family
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;600&display=swap" rel="stylesheet">
-  
+   -->
   <!-- Include local styles-->
   <link rel="stylesheet" href="css/index.css">
   
@@ -34,12 +34,17 @@
   <script src="js/ChoroplethMap.js"></script>
   <script src="js/BarChart.js"></script>
 </head>
-<!-- <header> This is just a place holder for when I find the correct image and font.
+<!-- <header>
   <img src="https://www.ksat.com/resizer/YeZbQQrXgt8H7-54fnR67TJpb-s=/640x360/smart/filters:format(jpeg):strip_exif(true):strip_icc(true):no_upscale(true):quality(65):fill(FFF)/arc-anglerfish-arc2-prod-gmg.s3.amazonaws.com/public/IJVI2HPU2JAPLJ2MRTBHPJLSCU.jpg" alt="Simply Easy Learning" width="1200"
          height="200">
-  <h1> ___________________________Murder by the US Police________________________</h1>
+</header> -->
+
+<header>
+  <img src="Crime_Scene2.jpg" alt="Simply Easy Learning" width="1250"
+         height="150">
 </header>
-<body> -->
+
+<body>
 
 <script type="module">
   // async load local data file
@@ -50,7 +55,7 @@
       const container = document.getElementById('graphs')
       const width = container.offsetWidth
       const height = container.offsetHeight
-      
+      console.log = container
       // scrollama initialization
       // API: https://github.com/russellgoldenberg/scrollama#api
       const scroller = scrollama();
@@ -128,22 +133,30 @@
         Was all this death justifed? Are the thousand of nameless fatherless children at least to find solace
         in knowing that the killing of their parents was not senseless?
       </p>
-      <p>It is beyond doubt that human history is filled with racial tension. The United States cannot and should not
-         forget its past in this regard. It was one of the last countries in this side of the world to understand this lesson. Irish,
+      <p>It is beyond doubt that human history is filled with racial tension. Back in the early stages of civilization,
+        allowing another group of people to enter your tribe could be a matter of life and death. "Is that other tribe
+        trying befriend us or invade and conquer us?" As a result, people were extremely careful of those who spoke or
+        looked differently. This led to multiple tribal and territorial wars. Empires rose and fell based on this
+        determinant. As humanity progressed, we understood that the determinant was not the color of the skin nor the
+        language. That there were white people who were bloodthirsty and other groups of white people were friendly,
+        there were black people who were peaceful and those who were not, and that some native Americans
+        were violent while others were actually trying to find ways to stop the violent ones.
+        Then we learned that it wasn't even a matter of groups, but of individuals.
+      </p>
+      <p>The United States was one of the last countries in this side of the world to understand this lesson. Irish,
         African American, Japanese, Latin etc. were all at some point target of discrimination in the US. It was not
-        until after 1960's when this lesson learned started to become the national norm... Has it really learned it?
-        Is the US internal security force purposefully and systematically trying to erradicate African Americans?
+        until after 1960's when this lesson learned started to become the national norm.
       </p>
       <p>
         In the year 2015, The Washington Post started recording every fatal shooting by a police officers on-duty 
         in the United States. In that time there have been more than 5,000 such shootings recorded by The Post.
         The claim that started the violence was that African Americans are hunted down by police officers and shot
-        for not reason. That the police are systematically racist and that the only solution to this crisis is the
+        for no reason. That the police are systematically racist and that the only solution to this crisis is the
         dismantling of the police.
       </p>
       <p>
         Statisticians Erika Harrell, Ph.D., and Elizabeth Davis from the Bureau of Justice Statistics, report that
-        in the prior 12 months, as of 2018, among persons age 16 or older—
+        in the prior 12 months, as of 2018, among persons age 16 or older:
         <li>61.5 million residents had at least one contact with police.</li>
         <li>Twenty-four percent of residents experienced contact with police, up from 21% in 2015.</li>
         <li>Whites (26%) were more likely than blacks (21%), Hispanics (19%), or persons of other races (20%) to experience police contact.</li>

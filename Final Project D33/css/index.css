@@ -6,7 +6,7 @@ body {
 }
 
 article {
-  padding-right: 10rem;
+  padding-right: 7rem;
   max-width: 30rem;
 }
 
@@ -23,12 +23,12 @@ article {
 .wrap {
   display: flex;
   max-width: 100rem;
-  margin: 3rem auto;
+  margin: 2rem auto;
   padding: 1rem;
 }
 
 .article {
-  margin-top: 100px;
+  margin-top: 2px;
 }
 
 .title {
@@ -38,7 +38,7 @@ article {
 }
 
 .step {
-  font-size: 18px;
+  font-size: 17px;
   margin-bottom: 60vh;
   text-align: justify;
   margin-left: 40px;
@@ -59,7 +59,7 @@ article {
 /*line chart styles*/
 .line-axis {
   font-family: "Inconsolata", Helvetica, Arial, sans-serif;
-  font-size: 18px;
+  font-size: 15px;
 }
 
 .chart-title {
@@ -76,8 +76,8 @@ article {
 }
 
 .focus-text {
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 14px;
+  font-weight: normal;
   opacity: 0;
 }
 
@@ -87,7 +87,7 @@ article {
 }
 
 .bar-text {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
   fill: #2F394D;
 }

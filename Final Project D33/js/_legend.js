@@ -131,7 +131,7 @@ function _legend({
       .attr("fill", "currentColor")
       .attr("text-anchor", "start")
       .attr("font-weight", "bold")
-      .attr("font-family", "Inconsolata")
+//      .attr("font-family", "Inconsolata")
       .attr("font-size", "16px")
       .text(title));
   
